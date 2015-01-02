@@ -14,3 +14,6 @@ doubleEveryOther :: [Integer] -> [Integer]
 doubleEveryOther [] = []
 doubleEveryOther [x] = [x]
 doubleEveryOther (x:(y:xs)) = x : y * 2 : doubleEveryOther xs
+
+sumDigits :: [Integer] -> Integer
+sumDigits = foldr ((+) . sum . toDigits) 0
