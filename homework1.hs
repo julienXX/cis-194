@@ -9,3 +9,8 @@ toDigits n
 
 toDigitsRev :: Integer -> [Integer]
 toDigitsRev n = reverse $ toDigits n
+
+doubleEveryOther :: [Integer] -> [Integer]
+doubleEveryOther [] = []
+doubleEveryOther [x] = [x]
+doubleEveryOther (x:(y:xs)) = x : y * 2 : doubleEveryOther xs
