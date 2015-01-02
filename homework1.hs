@@ -17,3 +17,6 @@ doubleEveryOther (x:(y:xs)) = x : y * 2 : doubleEveryOther xs
 
 sumDigits :: [Integer] -> Integer
 sumDigits = foldr ((+) . sum . toDigits) 0
+
+validate :: Integer -> Bool
+validate n = sumDigits(doubleEveryOther $ toDigitsRev n) `mod` 10 == 0
