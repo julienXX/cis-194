@@ -17,9 +17,9 @@ parseMessage message =
    case severity of
     "I" -> let (ts, msg) = parseRest rest in LogMessage Info ts msg
     "W" -> let (ts, msg) = parseRest rest in LogMessage Warning ts msg
-    "E" -> let (e, rest') = parseRest rest
+    "E" -> let (code, rest') = parseRest rest
            in
-            let (ts, msg) = parseRest rest' in LogMessage (Error e) ts msg
+            let (ts, msg) = parseRest rest' in LogMessage (Error code) ts msg
     _   -> Unknown message
 
 parse :: String -> [LogMessage]
