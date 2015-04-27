@@ -20,6 +20,7 @@ parseMessage message =
     "E" -> let (e, rest') = parseRest rest
            in
             let (ts, msg) = parseRest rest' in LogMessage (Error e) ts msg
+    _   -> Unknown message
 
 parse :: String -> [LogMessage]
 parse = (map parseMessage) . lines
